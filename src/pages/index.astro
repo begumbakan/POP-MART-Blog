@@ -1,20 +1,14 @@
 ---
-
+import BaseLayout from '../layouts/BaseLayout.astro';
+const { pageTitle } = Astro.props;
 ---
+<BaseLayout pageTitle={pageTitle}>
+  <h1>All About <span class="title">POP MART</span></h1>
+  <h2>This blog is dedicated to POP MART.</h2>
+  <p>POP MART is a Chinese company that specializes in designer toys and collectibles. Founded in 2010, it has gained popularity for its unique and artistic blind box toys, which are often created in collaboration with various artists and designers.</p>
+  <p>POP MART's products are known for their high quality, creativity, and limited editions, making them highly sought after by collectors. The company has expanded its product lines to include various themes and characters, appealing to a wide range of audiences.</p>
+  <p>In addition to its physical stores, POP MART has a strong online presence and has expanded its reach internationally, making it a prominent player in the designer toy market.</p>
+  <p>Overall, POP MART has become a significant name in the world of designer toys, attracting collectors and enthusiasts with its innovative designs and artistic collaborations.</p>
+  <p>For more information, you can visit the official website of <a href="https://www.popmart.com/" class="popmart-link">POP MART</a></p>
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Home</title>
-	</head>
-	<body>
-		<a href="/">Home</a>
-        <a href="/about/">About</a>
-		<a href="/blog/">Blog</a>
-		<h1>Astro</h1>
-		<h1>My Astro Site</h1>
-	</body>
-</html>
+</BaseLayout>
