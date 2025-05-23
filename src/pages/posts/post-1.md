@@ -4,12 +4,9 @@ title: 'My First Blog Post'
 pubDate: 2025-04-29
 description: 'This is the first post of my new Astro blog.'
 author: Begüm Bakan
-image:
-    url: 'https://docs.astro.build/assets/rose.webp'
-    alt: 'The Astro logo on a dark background with a pink glow.'
-tags: ["astro", "blogging", "learning in public"]
+tags: ["blogging"]
 ---
-Welcome to my _new blog_ about learning Astro! Here, I will share my learning journey as I build a new website.
+Welcome to my _blog_ about POP MART! Here, I will tell you a bit more about POP MART's figurines.
 
 ## What I've accomplished
 
