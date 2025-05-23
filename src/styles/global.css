@@ -45,6 +45,7 @@
   h1 {
     margin: 1rem 0;
     font-size: 2.5rem;
+    color: #d5d5d5;
   }
 
   .hamburger {
@@ -63,21 +64,20 @@
   .nav-links {
     width: 100%;
     top: 5rem;
-    /* left: 48px; */         /* Remove this line */
     background-color: #e60122;
     display: none;
-    margin: 0 auto;           /* Center horizontally */
-    text-align: center;       /* Center child elements */
-    padding: 1rem 0;          /* Add vertical space */
-    border-radius: 1.5rem;    /* Rounded corners for a modern look */
-    box-shadow: 0 4px 16px rgba(0,0,0,0.1); /* Subtle shadow */
+    margin: 0 auto;          
+    text-align: center;       
+    padding: 1rem 0;         
+    border-radius: 1.5rem;    
+    box-shadow: 0 4px 16px rgba(0,0,0,0.1); 
 }
 
 .nav-links a {
-    display: inline-block;    /* Inline for centering */
-    margin: 0 1rem;           /* Space between links */
+    display: inline-block;    
+    margin: 0 1rem;           
     text-align: center;
-    padding: 0.75em 2em;      /* Larger clickable area */
+    padding: 0.75em 2em;      
     text-decoration: none;
     font-size: 1.2rem;
     font-weight: bold;
