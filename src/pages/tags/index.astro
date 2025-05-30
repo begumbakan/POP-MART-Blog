@@ -1,0 +1,56 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+const allPosts = Object.values(import.meta.glob('../posts/*.md', { eager: true }));
+const tags = [...new Set(allPosts.map((post: any) => post.frontmatter.tags).flat())];
+const pageTitle = "Tag Index";
+---
+<BaseLayout pageTitle={pageTitle}>
+  <div class="tags">
+    {tags.map((tag) => (
+      <p class="tag"><a href={`/tags/${tag}`}>{tag}</a></p>
+    ))}
+  </div>
+</BaseLayout>
+<style>
+    .tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75em;
+        justify-content: flex-start;
+        margin: 2em 0;
+    }
+
+    .tag {
+        margin: 0;
+        border: 2px solid #e60122;
+        border-radius: 0.75em;
+        padding: 0.4em 1.2em;
+        font-size: 1.15em;
+        background-color: #2b2b2b;
+        color: #d5d5d5;
+        letter-spacing: 0.05em;
+        transition: background 0.2s, color 0.2s, border 0.2s, transform 0.15s;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        display: inline-block;
+    }
+
+    .tag a {
+        color: #d5d5d5;
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.2s;
+    }
+
+    .tag:hover,
+    .tag:focus-within {
+        background-color: #e60122;
+        color: #fff;
+        border-color: #fff;
+        transform: translateY(-2px) scale(1.05);
+    }
+
+    .tag:hover a,
+    .tag:focus-within a {
+        color: #fff;
+    }
+</style>
