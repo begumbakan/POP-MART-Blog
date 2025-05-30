@@ -1,19 +1,87 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import BlogPost from '../../components/BlogPost.astro';
 
 export async function getStaticPaths() {
-  return [
-    { params: { tag: "astro" } },
-    { params: { tag: "successes" } },
-    { params: { tag: "community" } },
-    { params: { tag: "blogging" } },
-    { params: { tag: "setbacks" } },
-    { params: { tag: "learning in public" } },
-  ];
+  const allPosts = Object.values(import.meta.glob('../posts/*.md', { eager: true }));
+
+  const uniqueTags = [...new Set(allPosts.map((post: any) => post.frontmatter.tags).flat())];
+
+  return uniqueTags.map((tag) => {
+    const filteredPosts = allPosts.filter((post: any) => post.frontmatter.tags.includes(tag));
+    return {
+      params: { tag },
+      props: { posts: filteredPosts },
+    };
+  });
 }
 
 const { tag } = Astro.params;
+const { posts } = Astro.props;
 ---
+<style is:global>
+  .blog-section {
+    animation: fadeIn 0.8s ease;
+    background: #353535;
+    border-radius: 1.5rem;
+    padding: 2rem 2.5rem;
+    margin: 2rem auto;
+    max-width: 700px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+  }
+  .blog-section ul {
+    padding-left: 1.5rem;
+    margin-top: 1rem;
+    position: relative;
+    }
+    .blog-section ul li::before {
+    content: "=>";
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+    margin-right: 0.5em;
+    }
+ 
+  
+  .blog-section li {
+    margin-bottom: 0.75em;
+    font-size: 1.1em;
+    list-style: none;
+  }
+  .blog-section a {
+    color: inherit; 
+    text-decoration: none;
+    transition: color 0.2s;
+    background: none;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 0;
+    display: inline;
+  }
+  .blog-section a:hover,
+  .blog-section a:focus {
+    color: #e60122;
+    background: none;
+    transform: none;
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(24px);}
+    to { opacity: 1; transform: none;}
+  }
+</style>
+
 <BaseLayout pageTitle={tag}>
-  <p>Posts tagged with {tag}</p>
+  <section class="blog-section">
+    <p>Posts tagged with {tag}</p>
+    <ul>
+      {posts.map((post: any) => (
+        <li>
+          <a href={post.url}>
+            {post.frontmatter.title}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </section>
 </BaseLayout>
