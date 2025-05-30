@@ -1,21 +1,19 @@
 ---
 layout: ../../layouts/MarkdownPostLayout.astro
-title: 'My First Blog Post'
+title: 'Starting Off...'
 pubDate: 2025-04-29
-description: 'This is the first post of my new Astro blog.'
+description: 'What I am planing to the in the blog.'
 author: Begüm Bakan
 tags: ["blogging"]
 ---
 Welcome to my _blog_ about POP MART! Here, I will tell you a bit more about POP MART's figurines.
 
-## What I've accomplished
+## What I will talk about
 
-1. **Installing Astro**: First, I created a new Astro project and set up my online accounts.
+**The Figurines**: I will mainly talk about the POP MART figurines and their history and creators.
 
-2. **Making Pages**: I then learned how to make pages by creating new `.astro` files and placing them in the `src/pages/` folder.
+**Things I Bought**: What I have bought from POP MART and what it has inside the box!
 
-3. **Making Blog Posts**: This is my first blog post! I now have Astro pages and Markdown posts!
+**Review**: Review of the figurines.
 
-## What's next
-
-I will finish the Astro tutorial, and then keep adding more posts. Watch this space for more to come.
+You can learn more about the specific figurines from the _Tags_ page!
